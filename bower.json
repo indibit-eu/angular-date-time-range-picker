@@ -1,6 +1,6 @@
 {
   "name": "angular-date-time-range-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "./src/date-time-range-picker.directive.js",
   "dependencies": {
