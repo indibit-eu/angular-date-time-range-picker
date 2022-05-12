@@ -1,1 +1,1 @@
-# angular-date-time-range-picker
+# AngularJS Date / Time Range Picker
