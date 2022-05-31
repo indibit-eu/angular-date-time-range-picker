@@ -6,8 +6,8 @@ angular
                 restrict: 'E',         // Element
                 replace: true,
                 scope: {
-                    start: '=',
-                    end: '=',
+                    start: '=',         // Startdatum + -uhrzeit
+                    end: '=',           // Enddatum + -uhrzeit (nur die Uhrzeit unterscheidet sich vom Startdatum)
                     ngDisabled: '<',
                     changed: '&'
                 },
@@ -43,9 +43,9 @@ angular
                     function ($scope) {
 
                         $scope.state = {
-                            date: undefined,
-                            timeStart: undefined,
-                            timeEnd: undefined,
+                            date: undefined,            // Datum (Tag)
+                            timeStart: undefined,       // Uhrzeit Anfang
+                            timeEnd: undefined,         // Uhrzeit Ende
                             endTimeValid: true
                         }
 
@@ -69,6 +69,9 @@ angular
                                         mTimeEnd.get('hour'), mTimeEnd.get('minute')
                                     ]).toDate()
                                 }
+                                if ($scope.changed) {
+                                    $scope.changed()
+                                }
                             }
                         }
 
@@ -82,9 +85,6 @@ angular
                         $scope.$watch('end', function (newVal) {
                             if (newVal) {
                                 $scope.state.timeEnd = newVal;
-                                if ($scope.changed) {
-                                    $scope.changed()
-                                }
                             }
                         });
 
